@@ -5,40 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>NabzCalculator</title>
 </head>
 <body>
    <div class="calculator">
-    <div id="output">
-        <input type="number" placeholder="0000" readonly>
+    <div class="calculator_display" id="output">
+        <div class="text-muted" id="prime-output" type="number" readonly></div>
+        <div id="display-window" type="number" placeholder="0000" readonly></div>
+    </div>
+    <div>
         
     </div>
     
     <div class="calculator-buttons">
-    <button class="calc-button is-2x">AC</button>
-    <button class="calc-button">DEL</button>
-    <button class="calc-button">&divide;</button>
-
-    <button class="calc-button">7</button>
-    <button class="calc-button">8</button>
-    <button class="calc-button">9</button>
-    <button class="calc-button">&times;</button>
-
-    <button class="calc-button">4</button>
-    <button class="calc-button">5</button>
-    <button class="calc-button">6</button>
-    <button class="calc-button">&plus;</button>
-
-    <button class="calc-button">1</button>
-    <button class="calc-button">2</button>
-    <button class="calc-button">3</button>
-    <button class="calc-button">&minus;</button>
-
-    <button class="calc-button">.</button>
-    <button class="calc-button is-zero">0</button>
-    <button id="equal" class="calc-button is-equals  is-2x">&equals;</button>
-</div>
-   </div>
+        <button onclick="clearSum()" class="calc-button is-2x">AC</button>
+        <button onclick="del()" class="calc-button">DEL</button>
+        <button onclick="addToSum('/')" class="calc-button">&divide;</button>
+     
+        <button onclick="addToSum('7')" class="calc-button">7</button>
+        <button onclick="addToSum('8')" class="calc-button">8</button>
+        <button onclick="addToSum('9')" class="calc-button">9</button>
+        <button onclick="addToSum('*')" class="calc-button">&times;</button>
+     
+        <button onclick="addToSum('4')" class="calc-button">4</button>
+        <button onclick="addToSum('5')" class="calc-button">5</button>
+        <button onclick="addToSum('6')" class="calc-button">6</button>
+        <button onclick="addToSum('+')" class="calc-button">&plus;</button>
+     
+        <button onclick="addToSum('1')" class="calc-button">1</button>
+        <button onclick="addToSum('2')" class="calc-button">2</button>
+        <button onclick="addToSum('3')" class="calc-button">3</button>
+        <button onclick="addToSum('-')" class="calc-button">&minus;</button>
+     
+        <button onclick="addToSum('.')" class="calc-button">.</button>
+        <button onclick="addToSum('0')" class="calc-button is-zero">0</button>
+        <button onclick="evaluateSum()" class="calc-button is-equals is-2x">&equals;</button>
+    </div>
+       </div>
    <script src="./script.js"></script>
 </body>
 </html>
