@@ -4,18 +4,47 @@ const output =document.getElementById("prime-output");
 const display_answer =document.getElementById("display-window");
 let arr = [] 
 
+
+
 function addToSum(num){
     switch(num){
+    //case 1 - adding an operator - check if last element is an operator
     case `+`:
-    case `-`:
-    case `*`:
-    case `/`:
-        output.innerHTML  += num
-        arr = []
-        console.log(arr)
+        //
+        if(arr[arr.length-1] == `+` || arr[arr.length-1] == `-` ||arr[arr.length-1] == `*`|| arr[arr.length-1] == `/` || arr[arr.length-1] == `.` ){
+            //remains the same
+            output.innerHTML = output.innerHTML
+        }else{
+            //if it doesn't it adds it
+            output.innerHTML += num
+            arr.push(num)
+            console.log(arr)
+        }
     break;
-    case `.`:
-        if(arr.includes(`.`)){
+    
+    //case 2
+    case `-`:
+        if(arr[arr.length-1] == `+` || arr[arr.length-1] == `-` ||arr[arr.length-1] == `*`|| arr[arr.length-1] == `/` || arr[arr.length-1] == `.` ){
+            output.innerHTML = output.innerHTML
+        }else{
+            output.innerHTML += num
+            arr.push(num)
+            console.log(arr)
+        }
+    break;
+    //case 3
+    case `*`:
+        if(arr[arr.length-1] == `+` || arr[arr.length-1] == `-` ||arr[arr.length-1] == `*`|| arr[arr.length-1] == `/` || arr[arr.length-1] == `.` ){
+            output.innerHTML = output.innerHTML
+        }else{
+            output.innerHTML += num
+            arr.push(num)
+            console.log(arr)
+        }
+    break;
+    //case 4
+    case `/`:
+        if(arr[arr.length-1] == `+` || arr[arr.length-1] == `-` ||arr[arr.length-1] == `*`|| arr[arr.length-1] == `/` || arr[arr.length-1] == `.` ){
             output.innerHTML = output.innerHTML
         } else{
             output.innerHTML += num
@@ -23,11 +52,26 @@ function addToSum(num){
             console.log(arr)
         }
     break;
+   
+    //case 5
+    case `.`:
+        if(arr[arr.length-1] == `+` || arr[arr.length-1] == `-` ||arr[arr.length-1] == `*`|| arr[arr.length-1] == `/` || arr[arr.length-1] == `.` ){
+            output.innerHTML = output.innerHTML
+        } else{
+            output.innerHTML += num
+            arr.push(num)
+            console.log(arr)
+        }
+    break;
+
+
+    //by default - add to array and log
     default:
     output.innerHTML += num;
     arr.push(num)
     console.log(arr)
 }
+
 }
  
 function displayAnswer(num){
@@ -36,6 +80,14 @@ function displayAnswer(num){
  
 function evaluateSum(){
     var math = document.getElementById("prime-output").innerText;
+    try{
+        eval (math);
+    }
+    catch(error){
+        document.getElementById("prime-output").innerText = '';
+
+    }
+
     var result = eval (math);
     console.log(result);
     displayAnswer(result);
@@ -52,7 +104,7 @@ function del(){
 // AC button
 function clearSum(){
     document.getElementById("prime-output").innerText = '';
-    document.getElementById("display-window").innerText = '0000';
+    document.getElementById("display-window").innerText = '';
     arr = []
 }
 
